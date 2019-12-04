@@ -2639,7 +2639,7 @@ input, select, textarea {
 		}
 
 		#header .image.avatar {
-			margin: 0 0 1em 9.25em; /* Change avatar location (0 1 0 0) */
+			margin: 0 0 1em 0em; /* Change avatar location (0 1 0 0) */
 			width: 9em; /* Change avatar size (6.25em) */
 		}
 
