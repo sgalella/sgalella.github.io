@@ -72,6 +72,56 @@ input, select, textarea {
 	appearance: none;
 }
 
+/*
+/* 25/03/2020
+*/
+
+/*
+* {
+	outline: 1px solid red;
+}
+*/
+
+.main-nav {
+    text-align: center;
+    max-width: 76.7%;
+    margin: 0 auto;
+}
+
+.main-nav ul{
+	outline: 1px solid lightgray;
+	padding-left: 0;
+    white-space: nowrap;
+    max-width: 600px;
+	margin: 0 auto;
+	
+}
+
+.main-nav li{
+	padding: 5px;
+    display: inline-block;
+	font-size: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+.main-nav li a {
+    text-decoration: none;
+	color: black;
+	display: block;
+}
+
+#main #About-me{
+	border-top: none;
+	margin: 2em 0 0 0;
+	padding: 2em 0 0 0
+}
+
+/*
+/*
+*/
+
+
 /* Basic */
 
 	html {
@@ -110,7 +160,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		border-bottom: dotted 1px;
+		border-bottom: none; /* dotted 1px;*/
 		color: #000000; /* #49bf9d */
 		text-decoration: none;
 	}
@@ -1270,6 +1320,28 @@ input, select, textarea {
 
 		@media screen and (max-width: 736px) {
 
+			.main-nav {
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			.main-nav ul{
+				outline: 1px solid lightgray;
+				padding-left: 0;
+				white-space: nowrap;
+				margin: auto;
+				display: block;
+				
+			}
+			
+			.main-nav li{
+				padding: 5px;
+				display: block;
+				font-size: 20px;
+				
+			}
+			
+
 			.row {
 				display: flex;
 				flex-wrap: wrap;
@@ -1514,6 +1586,7 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 480px) {
+			
 
 			.row {
 				display: flex;
@@ -2312,6 +2385,28 @@ input, select, textarea {
 
 		@media screen and (max-width: 480px) {
 
+			.main-nav {
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			.main-nav ul{
+				outline: 1px solid lightgray;
+				padding-left: 0;
+				white-space: nowrap;
+				margin: auto;
+				display: block;
+				
+			}
+			
+			.main-nav li{
+				padding: 5px;
+				display: block;
+				font-size: 20px;
+				
+			}
+			
+
 			ul.actions:not(.fixed) {
 				-moz-flex-direction: column;
 				-webkit-flex-direction: column;
@@ -2690,8 +2785,8 @@ input, select, textarea {
 
 		#main > section {
 			border-top: solid 2px #efefef;
-			margin: 4em 0 0 0;
-			padding: 4em 0 0 0;
+			margin: 3em 0 0 0; /* 4em 0 0 0 */
+			padding: 3em 0 0 0; /* 4em 0 0 0 */
 		}
 
 			#main > section:first-child {
@@ -3028,7 +3123,7 @@ input, select, textarea {
 			#main {
 				margin-left: 30%;
 				max-width: none;
-				padding: 6em 3em 3em 3em;
+				padding: 1em 3em 3em 3em; /*6em 3em 3em 3em */
 				width: calc(100% - 30%);
 			}
 
@@ -3110,7 +3205,7 @@ input, select, textarea {
 
 			#main {
 				margin: 0;
-				padding: 6em 4em;
+				padding: 1em 4em;
 				width: 100%;
 			}
 
