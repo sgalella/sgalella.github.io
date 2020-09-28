@@ -86,11 +86,11 @@ input, select, textarea {
     text-align: center;
     max-width: 100%;
 	margin: 0 auto;
-	background-color: white;
+	background-color: whitesmoke;
 }
 
 .main-nav ul{
-	outline: 1px solid lightgray;
+	outline: 1px solid black;
 	padding-left: 0;
     white-space: nowrap;
     max-width: 100%;
@@ -1324,10 +1324,12 @@ input, select, textarea {
 			.main-nav {
 				text-align: center;
 				margin: 0 auto;
+				color: whitesmoke;
+				max-width: 50%;
 			}
 			
 			.main-nav ul{
-				outline: 1px solid lightgray;
+				outline: 1px solid black;
 				padding-left: 0;
 				white-space: nowrap;
 				margin: auto;
@@ -2389,10 +2391,12 @@ input, select, textarea {
 			.main-nav {
 				text-align: center;
 				margin: 0 auto;
+				color: whitesmoke;
+				max-width: 50%;
 			}
 			
 			.main-nav ul{
-				outline: 1px solid lightgray;
+				outline: 1px solid black;
 				padding-left: 0;
 				white-space: nowrap;
 				margin: auto;
