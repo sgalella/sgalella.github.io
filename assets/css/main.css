@@ -2053,6 +2053,37 @@ input, select, textarea {
 		opacity: 1.0;
 	}
 
+/* Papers */
+.paper {
+	height: 150px;
+}
+
+.paper-img {
+	border: 1px solid black;
+	height: 100%;
+	width: 35%;
+	float: right;
+	margin-left: 20px;
+}
+
+.paper-title {
+	font-weight: bold;
+	margin: 0;
+	line-height: 2;
+
+}
+
+.paper-authors {
+	font-style: italic;
+	margin: 0;
+	line-height: 2;
+}
+
+.paper-name {
+	margin: 0;
+	line-height: 2;
+}
+
 /* Box */
 
 	.box {
