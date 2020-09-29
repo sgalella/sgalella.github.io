@@ -1316,7 +1316,7 @@ input, select, textarea {
 						.row.gtr-200.gtr-uniform > * {
 							padding-top: 4em;
 						}
-
+			
 		}
 
 		@media screen and (max-width: 736px) {
@@ -2069,7 +2069,6 @@ input, select, textarea {
 }
 
 .paper-img {
-	border: 1px solid black;
 	height: 100%;
 	width: 35%;
 	float: right;
@@ -2083,12 +2082,12 @@ input, select, textarea {
 }
 
 .paper-authors {
-	font-style: italic;
 	margin: 0;
 	line-height: 2;
 }
 
-.paper-name {
+.paper-journal {
+	font-style: italic;
 	margin: 0;
 	line-height: 2;
 }
@@ -3264,10 +3263,15 @@ input, select, textarea {
 			}
 		
 		/* Paper */
+
+			.paper-info {
+				width: 50vw;
+			}
+
 			.paper-img {
 				display: block;
-				width: 30%;
-				margin: 20px 10vw 0 0;
+				width: 30vw;
+				margin-left: 10px;
 			}
 
 	}
