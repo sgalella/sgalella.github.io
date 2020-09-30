@@ -162,13 +162,13 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border-bottom: none; /* dotted 1px;*/
-		color:#787878; /* #000000; / #49bf9d */
+		color: royalblue; /* #787878; #000000; #49bf9d */
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #6f97ee !important; /* #49bf9d */
+			color: mediumblue !important; /*#6f97ee  #49bf9d */
 			text-decoration: none;
 		}
 
