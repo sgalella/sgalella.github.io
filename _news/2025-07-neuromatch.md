@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2025-07-25 09:00:00+0200
+inline: true
+related_posts: false
+---
+
+Participated in the **Neuromatch Academy NeuroAI** course.

@@ -1,0 +1,123 @@
+---
+---
+{% comment %}
+  Local override of al_folio_core 1.0.15 _layouts/bib.liquid.
+  Distill-style row: [date + venue badge] [title, authors, one-line summary, venue, links] [figure].
+  Extra BibTeX fields used here: `tldr` (one-sentence summary) and `month` (shown in the date column).
+{% endcomment %}
+
+{% if entry.html %}
+  {% if entry.html contains '://' %}{% assign title_url = entry.html %}{% else %}{% assign title_url = entry.html | prepend: '/assets/html/' | relative_url %}{% endif %}
+{% elsif entry.arxiv %}
+  {% assign title_url = entry.arxiv | prepend: 'https://arxiv.org/abs/' %}
+{% elsif entry.doi %}
+  {% assign title_url = entry.doi | prepend: 'https://doi.org/' %}
+{% else %}
+  {% assign title_url = nil %}
+{% endif %}
+
+<div class="row d-pub">
+  <!-- Date and venue -->
+  <div class="col-sm-2 d-pub-meta">
+    <div class="d-pub-date">
+      {%- if entry.month -%}{{ entry.month | capitalize | slice: 0, 3 }} {% endif -%}
+      {{- entry.year -}}
+    </div>
+    {% if entry.abbr %}
+      {% comment %} Preprints get an outlined badge; peer-reviewed venues a solid one. {% endcomment %}
+      {% assign preprint_servers = 'arXiv,bioRxiv,medRxiv,PsyArXiv' | split: ',' %}
+      {% if preprint_servers contains entry.abbr %}
+        {% assign badge_class = 'd-pub-badge d-pub-badge-preprint' %}
+      {% else %}
+        {% assign badge_class = 'd-pub-badge' %}
+      {% endif %}
+      {% if site.data.venues[entry.abbr].url %}
+        <a class="{{ badge_class }}" href="{{ site.data.venues[entry.abbr].url }}">{{ entry.abbr }}</a>
+      {% else %}
+        <span class="{{ badge_class }}">{{ entry.abbr }}</span>
+      {% endif %}
+    {% endif %}
+    {% if entry.role %}<div class="d-pub-role">{{ entry.role }}</div>{% endif %}
+  </div>
+
+  <!-- Title, authors, summary, venue, links -->
+  <div id="{{ entry.key }}" class="{% if entry.preview %}col-sm-6{% else %}col-sm-10{% endif %} d-pub-body">
+    <div class="d-pub-title">
+      {% if title_url %}<a href="{{ title_url }}">{{ entry.title }}</a>{% else %}{{ entry.title }}{% endif %}
+    </div>
+
+    <div class="d-pub-authors">
+      {%- for author in entry.author_array -%}
+        {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
+        {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
+        {%- assign author_is_self = false -%}
+        {%- if site.scholar.last_name contains author_last_name and site.scholar.first_name contains author.first -%}
+          {%- assign author_is_self = true -%}
+        {%- endif -%}
+        {%- if forloop.first == false -%}
+          {%- if forloop.last -%}{%- if forloop.length > 2 -%},{%- endif %} and {% else %}, {% endif -%}
+        {%- endif -%}
+        {%- if author_is_self -%}
+          <span class="d-pub-self">{{ author.first }} {{ author_last_html }}</span>
+        {%- else -%}
+          {{ author.first }} {{ author_last_html }}
+        {%- endif -%}
+      {%- endfor -%}
+      {% if entry.annotation %}
+        <span class="d-pub-annotation">{{ entry.annotation }}</span>
+      {% endif %}
+    </div>
+
+    {% if entry.tldr %}
+      <div class="d-pub-tldr">{{ entry.tldr }}</div>
+    {% endif %}
+
+    {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
+    <div class="d-pub-venue">
+      {%- if entry.type == 'article' -%}{{ entry.journal }}{%- elsif proceedings contains entry.type -%}{{ entry.booktitle }}{%- endif -%}
+    </div>
+
+    <div class="links">
+      {% if entry.html %}<a href="{{ title_url }}" class="btn btn-sm z-depth-0" role="button">Paper</a>{% endif %}
+      {% if entry.arxiv %}<a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>{% endif %}
+      {% if entry.doi %}<a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>{% endif %}
+      {% if entry.pdf %}
+        <a href="{% if entry.pdf contains '://' %}{{ entry.pdf }}{% else %}{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}{% endif %}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+      {% endif %}
+      {% if entry.code %}<a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>{% endif %}
+      {% if entry.poster %}
+        <a href="{% if entry.poster contains '://' %}{{ entry.poster }}{% else %}{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}{% endif %}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+      {% endif %}
+      {% if entry.blog %}<a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button">Blog</a>{% endif %}
+      {% if entry.bibtex_show %}<a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>{% endif %}
+    </div>
+
+    {% if entry.bibtex_show %}
+      <div class="bibtex hidden">
+        {% highlight bibtex %}
+        {{- entry.bibtex | hideCustomBibtex -}}
+      {% endhighlight %}
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Figure -->
+  {% if entry.preview %}
+    <div class="col-sm-4 d-pub-figure">
+      {% comment %} Optional BibTeX field `preview_width` (e.g. {80%}) shrinks a single figure. {% endcomment %}
+      <div class="d-pub-figure-inner" {% if entry.preview_width %}style="width: {{ entry.preview_width }};"{% endif %}>
+        {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+        {%
+          include figure.liquid
+          loading="lazy"
+          path=entry_path
+          sizes="300px"
+          class="preview"
+          zoomable=true
+          avoid_scaling=true
+          alt=entry.title
+        %}
+      </div>
+    </div>
+  {% endif %}
+</div>

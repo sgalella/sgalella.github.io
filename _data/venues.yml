@@ -1,0 +1,9 @@
+# Venue links for the publication badges, keyed by the `abbr` field in _bibliography/papers.bib.
+"NeurIPS":
+  url: https://neurips.cc/
+"arXiv":
+  url: https://arxiv.org/
+"bioRxiv":
+  url: https://www.biorxiv.org/
+"Chaos":
+  url: https://pubs.aip.org/aip/cha

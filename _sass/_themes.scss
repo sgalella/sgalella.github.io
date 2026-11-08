@@ -1,0 +1,474 @@
+/* Local override of al_folio_core 1.0.15 _sass/_themes.scss: accent colour changed to CV blue. */
+/*******************************************************************************
+ * Themes
+ ******************************************************************************/
+@use "variables" as v;
+@use "sass:color";
+
+:root {
+  color-scheme: light;
+  --global-bg-color: #{v.$white-color};
+  --global-code-bg-color: rgba(51, 116, 174, 0.05);
+  --global-text-color: #{v.$black-color};
+  --global-text-color-light: #{v.$grey-color};
+  --global-theme-color: #3374ae;
+  --global-hover-color: #3374ae;
+  --global-hover-text-color: #{v.$white-color};
+  --global-footer-bg-color: #{v.$grey-color-dark};
+  --global-footer-text-color: #{v.$grey-color-light};
+  --global-footer-link-color: #{v.$white-color};
+  --global-distill-app-color: #{v.$grey-color};
+  --global-divider-color: rgba(0, 0, 0, 0.1);
+  --global-card-bg-color: #{v.$white-color};
+  --global-highlight-color: #{v.$red-color-dark};
+  --global-back-to-top-bg-color: rgba(
+    #{color.channel(v.$black-color, "red", v.$space: rgb)},
+    #{color.channel(v.$black-color, "green", v.$space: rgb)},
+    #{color.channel(v.$black-color, "blue", v.$space: rgb)},
+    0.4
+  );
+  --global-back-to-top-text-color: #{v.$white-color};
+  --global-newsletter-bg-color: #{v.$white-color};
+  --global-newsletter-text-color: #{v.$black-color};
+
+  --global-tip-block: #42b983;
+  --global-tip-block-bg: #e2f5ec;
+  --global-tip-block-text: #215d42;
+  --global-tip-block-title: #359469;
+  --global-warning-block: #e7c000;
+  --global-warning-block-bg: #fff8d8;
+  --global-warning-block-text: #6b5900;
+  --global-warning-block-title: #b29400;
+  --global-danger-block: #c00;
+  --global-danger-block-bg: #ffe0e0;
+  --global-danger-block-text: #600;
+  --global-danger-block-title: #c00;
+
+  #light-toggle-system {
+    display: inline-block;
+  }
+
+  #light-toggle-dark {
+    display: none;
+  }
+
+  #light-toggle-light {
+    display: none;
+  }
+
+  .only-light {
+    display: block;
+  }
+
+  .only-dark {
+    display: none;
+  }
+
+  #back-to-top {
+    color: var(--global-back-to-top-text-color);
+    background: var(--global-back-to-top-bg-color);
+    bottom: v.$back-to-top-bottom;
+    right: v.$back-to-top-right;
+    height: v.$back-to-top-height;
+    width: v.$back-to-top-width;
+    z-index: v.$back-to-top-z-index;
+  }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --global-bg-color: #{v.$grey-color-dark};
+  --global-code-bg-color: #{v.$code-bg-color-dark};
+  --global-text-color: #{v.$grey-color-light};
+  --global-text-color-light: #{v.$grey-color};
+  --global-theme-color: #6fa8dc;
+  --global-hover-color: #6fa8dc;
+  --global-hover-text-color: #{v.$white-color};
+  --global-footer-bg-color: #{v.$grey-color-light};
+  --global-footer-text-color: #{v.$grey-color-dark};
+  --global-footer-link-color: #{v.$black-color};
+  --global-distill-app-color: #{v.$grey-color-light};
+  --global-divider-color: #424246;
+  --global-card-bg-color: #{v.$grey-900};
+  --global-back-to-top-bg-color: rgba(
+    #{color.channel(v.$white-color, "red", v.$space: rgb)},
+    #{color.channel(v.$white-color, "green", v.$space: rgb)},
+    #{color.channel(v.$white-color, "blue", v.$space: rgb)},
+    0.5
+  );
+  --global-back-to-top-text-color: #{v.$black-color};
+  --global-newsletter-bg-color: #{v.$grey-color-light};
+  --global-newsletter-text-color: #{v.$grey-color-dark};
+
+  --global-tip-block: #42b983;
+  --global-tip-block-bg: #215d42;
+  --global-tip-block-text: #beffe2;
+  --global-tip-block-title: #e2f5ec;
+  --global-warning-block: #e7c000;
+  --global-warning-block-bg: #6b5900;
+  --global-warning-block-text: #fff2af;
+  --global-warning-block-title: #fff8d8;
+  --global-danger-block: #c00;
+  --global-danger-block-bg: #600;
+  --global-danger-block-text: #ffb9b9;
+  --global-danger-block-title: #ffe0e0;
+
+  .only-light {
+    display: none;
+  }
+
+  .only-dark {
+    display: block;
+  }
+}
+
+html[data-theme-setting="dark"] {
+  #light-toggle-system {
+    display: none;
+  }
+
+  #light-toggle-dark {
+    display: inline-block;
+  }
+
+  #light-toggle-light {
+    display: none;
+  }
+
+  #back-to-top {
+    color: var(--global-back-to-top-text-color);
+    background: var(--global-back-to-top-bg-color);
+  }
+}
+
+html[data-theme-setting="light"] {
+  #light-toggle-system {
+    display: none;
+  }
+
+  #light-toggle-dark {
+    display: none;
+  }
+
+  #light-toggle-light {
+    display: inline-block;
+  }
+}
+
+.fa-half-sun-moon {
+  position: relative;
+  display: inline-block;
+
+  --fa-font: var(--fa-font-solid);
+  speak: none;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  width: 1em;
+  height: 1em;
+}
+
+.fa-half-sun-moon::before,
+.fa-half-sun-moon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: -0.5px;
+  bottom: -0.5px;
+  text-align: center;
+  line-height: 1em;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  font: var(--fa-font);
+}
+
+/* Left half: MOON */
+.fa-half-sun-moon::before {
+  content: "\f111";
+  color: var(--global-text-color);
+  clip-path: polygon(0 0, calc(50% - 0.5px) 0, calc(50% - 0.5px) 100%, 0 100%);
+}
+
+/* Right half: SUN */
+.fa-half-sun-moon::after {
+  content: "\f185";
+  color: var(--global-text-color);
+  clip-path: polygon(calc(50% + 0.5px) 0, 100% 0, 100% 100%, calc(50% + 0.5px) 100%);
+  right: -1.5px; /* slight overflow to avoid right-edge clipping */
+  transform: translateX(-1px); /* visually re-center the sun half */
+}
+
+#light-toggle:hover .fa-half-sun-moon::before {
+  color: var(--global-theme-color);
+}
+
+#light-toggle:hover .fa-half-sun-moon::after {
+  color: var(--global-theme-color);
+}
+
+/* Smaller profile photo on the about page (al_folio_core default is 30% width; here 16%). */
+div.profile {
+  max-width: 45%;
+}
+
+@media (min-width: 576px) {
+  div.profile {
+    width: 16%;
+  }
+}
+
+/* Capitalise the section headings on the about page ("News", "Selected Publications", "Latest Posts"),
+   which are hard-coded in lowercase in al_folio_core's about layout. */
+h2 > a[href$="/news/"],
+h2 > a[href$="/publications/"],
+h2 > a[href$="/blog/"] {
+  text-transform: capitalize;
+}
+
+div.social .contact-icons {
+  font-size: 2.2rem;
+}
+
+/* Smaller social icons in the navbar on the about page (al_folio_core default is 1.7rem). */
+nav.navbar.navbar-light .navbar-brand.social {
+  font-size: 1.2rem;
+}
+
+/* Publications page groups by year only to keep newest-first order; hide the year headings and lines. */
+.publications h2.bibliography {
+  display: none;
+}
+
+.publications ol.bibliography {
+  border-top: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Distill-style rows for publications and blog posts
+   (see _layouts/bib.liquid and _pages/blog.md)
+   --------------------------------------------------------------------------- */
+div.publications ol.bibliography li,
+.d-post-list li {
+  margin-bottom: 0;
+}
+
+div.publications ol.bibliography li .bibtex.hidden:not(.open) {
+  margin: 0;
+  padding: 0;
+}
+
+.d-post-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.row.d-pub {
+  padding: 1rem 0;
+  border-bottom: none;
+}
+
+/* Thin divider between entries (not above the first one). */
+div.publications ol.bibliography li .row.d-pub,
+.d-post-list li + li.row.d-pub {
+  border-top: 1px solid var(--global-divider-color);
+}
+
+div.publications ol.bibliography:first-of-type li:first-child .row.d-pub {
+  border-top: none;
+}
+
+.d-pub-meta {
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+  padding-top: 0.35rem;
+
+  .d-pub-date {
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .d-pub-badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background-color: var(--global-theme-color);
+    color: #fff !important;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+html[data-theme="dark"] .d-pub-meta .d-pub-badge {
+  color: #1c1c1d !important; /* dark text on the lighter dark-mode blue */
+}
+
+/* Preprints: outlined badge (transparent fill, blue border and text). */
+html .d-pub-meta .d-pub-badge.d-pub-badge-preprint {
+  background-color: transparent;
+  color: var(--global-theme-color) !important;
+  box-shadow: inset 0 0 0 1px var(--global-theme-color);
+}
+
+.d-pub-body {
+  .d-pub-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+
+    a {
+      color: var(--global-text-color);
+    }
+
+    a:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+  }
+
+  .d-pub-authors {
+    color: var(--global-text-color-light);
+    margin-bottom: 0.6rem;
+  }
+
+  .d-pub-self {
+    color: var(--global-text-color);
+    font-weight: 500;
+  }
+
+  .d-pub-annotation {
+    font-size: 0.8rem;
+    margin-left: 0.4rem;
+  }
+
+  .d-pub-tldr {
+    font-size: 1.02rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  .d-pub-venue {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .links .btn {
+    margin-left: 0;
+    margin-right: 0.3rem;
+  }
+}
+
+.d-pub-figure {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  .d-pub-figure-inner {
+    width: 100%;
+  }
+
+  img,
+  figure,
+  picture {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Blog thumbnails: a quarter of the row (publications keep the default third). */
+@media (min-width: 576px) {
+  .d-post-list .row.d-pub > .d-pub-figure {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .d-post-list .row.d-pub > .d-pub-body.col-sm-6 {
+    flex: 0 0 58.333%;
+    max-width: 58.333%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .d-pub-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+
+    .d-pub-date {
+      margin-bottom: 0;
+    }
+  }
+
+  .d-pub-figure {
+    margin-top: 0.75rem;
+  }
+}
+
+/* About page: more breathing room above the News / Latest Posts / Selected Publications sections. */
+h2:has(> a[href$="/news/"]),
+h2:has(> a[href$="/blog/"]),
+h2:has(> a[href$="/publications/"]) {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--section-divider-color); /* separator between About, News and Selected Publications */
+}
+
+/* "See all news" link under the news list on the about page. */
+.news .news-see-all {
+  display: inline-block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* News: titles of works are written in italics (*title*); linked titles are blue, unlinked ones stay black. */
+.news em {
+  color: var(--global-text-color);
+}
+
+.news em a {
+  color: var(--global-theme-color);
+}
+
+/* Second accent (purple, rgb 112 0 90) for places: venues/events in news (bold) and institutions in the bio. */
+:root {
+  --section-divider-color: rgba(0, 0, 0, 0.25); /* darker than the divider between papers (0.1) */
+  --place-color: var(--global-text-color); /* places in plain text colour (was purple #983e86) */
+}
+
+html[data-theme="dark"] {
+  --section-divider-color: rgba(255, 255, 255, 0.3);
+  --place-color: var(--global-text-color);
+}
+
+.news strong,
+.news strong a,
+.place,
+a.place {
+  color: var(--place-color);
+}
+
+a.place:hover {
+  color: var(--place-color);
+  text-decoration: underline;
+}
+
+
+/* Small label for papers where I'm a contributing (not lead) author. */
+.d-pub-meta .d-pub-role {
+  margin-top: 0.45rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--global-text-color-light);
+}
