@@ -219,13 +219,6 @@ div.profile {
   }
 }
 
-/* Capitalise the section headings on the about page ("News", "Selected Publications", "Latest Posts"),
-   which are hard-coded in lowercase in al_folio_core's about layout. */
-h2 > a[href$="/news/"],
-h2 > a[href$="/publications/"],
-h2 > a[href$="/blog/"] {
-  text-transform: capitalize;
-}
 
 div.social .contact-icons {
   font-size: 2.2rem;
