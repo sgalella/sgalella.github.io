@@ -2,7 +2,7 @@
 layout: default
 permalink: /blog/
 title: Blog
-nav: true
+nav: false # hidden for now; set to true (and remove _pages/blog.md from exclude in _config.yml) to bring the blog back
 nav_order: 1
 pagination:
   enabled: true

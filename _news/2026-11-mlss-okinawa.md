@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-My work *Abstraction as Fisher Degeneracy: A Pullback on Generative Factors* has been accepted at the **Machine Learning Summer School (MLSS) in Okinawa**.
+My work *Abstraction as Fisher Degeneracy: A Pullback Metric on Generative Factors* has been accepted at the **Machine Learning Summer School (MLSS) in Okinawa**.

@@ -19,3 +19,7 @@ vendor
 # Python bytecode from bin/ helper scripts
 __pycache__/
 *.pyc
+
+# Blog drafts and their bibliography (kept local until a post is published)
+_drafts/
+assets/bibliography/blog_draft.bib

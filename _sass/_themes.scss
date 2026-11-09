@@ -231,9 +231,41 @@ div.social .contact-icons {
   font-size: 2.2rem;
 }
 
-/* Smaller social icons in the navbar on the about page (al_folio_core default is 1.7rem). */
-nav.navbar.navbar-light .navbar-brand.social {
-  font-size: 1.2rem;
+/* Social icons right after the name in the navbar, after a thin vertical line. */
+nav.navbar .navbar-brand.title {
+  margin-right: 0;
+}
+
+nav.navbar .nav-social-divider {
+  align-self: center;
+  width: 1px;
+  height: 1.3rem;
+  margin: 0 0.6rem 0 1rem;
+  background-color: var(--global-divider-color);
+}
+
+nav.navbar .nav-social {
+  margin-right: auto;
+}
+
+nav.navbar .nav-social {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+nav.navbar .nav-social a {
+  color: var(--global-text-color);
+  margin: 0 0.35rem;
+}
+
+nav.navbar .nav-social a:hover {
+  color: var(--global-theme-color);
+}
+
+/* "About me" heading on the home page: same size as News / Selected publications, no extra top gap. */
+.post-header h2.about-heading {
+  margin-top: 0;
 }
 
 /* Publications page groups by year only to keep newest-first order; hide the year headings and lines. */
@@ -471,4 +503,20 @@ a.place:hover {
   font-size: 0.75rem;
   font-style: italic;
   color: var(--global-text-color-light);
+}
+
+/* Phones: name + icons + menu button don't fit on one row, so shrink the icons and gaps. */
+@media (max-width: 575.98px) {
+  nav.navbar .navbar-brand.title {
+    font-size: 1.1rem;
+  }
+  nav.navbar .nav-social-divider {
+    margin: 0 0.3rem 0 0.6rem;
+  }
+  nav.navbar .nav-social {
+    font-size: 1rem;
+  }
+  nav.navbar .nav-social a {
+    margin: 0 0.25rem;
+  }
 }
